@@ -1,19 +1,22 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './components/navbar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [CommonModule, 
+    RouterOutlet, 
+    NavbarComponent],
   template: `
-    <div class="app-container">
-      <header>
-        <h1>User Management System</h1>
-      </header>
-      <main>
-        <router-outlet></router-outlet>
-      </main>
-    </div>
+    <!-- NAVBAR WITH LOGOUT BUTTON -->
+    <app-navbar></app-navbar>
+    
+    <!-- Main content -->
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
   `,
   styles: [`
     .app-container {

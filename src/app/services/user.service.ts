@@ -23,6 +23,7 @@ export class UserService {
       .set('size', size.toString())
       .set('sortBy', sortBy)
       .set('sortDir', sortDir);
+
     return this.http.get<PageResponse<User>>(this.apiUrl, { params });
   }
 
@@ -42,6 +43,7 @@ export class UserService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
+  // 👇 New methods for photo upload
   uploadPhoto(userId: number, file: File): Observable<User> {
     const formData = new FormData();
     formData.append('file', file);
